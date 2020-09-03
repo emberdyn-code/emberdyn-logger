@@ -1,22 +1,28 @@
 /**
- * @description Project Name: restful-api
- * @author Shawn Foster (shawn@emberdyn.com)
- * @copyright (c) Emberdyn, LLC 2019, - All Rights Reserved
- * @version 1.0.0
+ * @description Project Name: emberdyn-logger
+ * @author Emberdyn, LLC (support@emberdyn.com)
  */
 
-import 'dotenv/config'
-import path from 'path'
-import chalk from 'chalk'
-import moment from 'moment'
-import { existsSync, mkdirSync, appendFileSync, createReadStream } from 'fs'
-const config = require(node.process.env.EMBERDYN_LOGGER_CONFIG_PATH + '/logger')
+require('dotenv/config')
+const path = require('path')
+const chalk = require('chalk')
+const moment = require('moment')
+const {
+  existsSync,
+  mkdirSync,
+  appendFileSync,
+  createReadStream
+} = require('fs')
+const config = require(process.env.PWD +
+  path.sep +
+  process.env.EMBERDYN_LOGGER_CONFIG_PATH +
+  '/logger')
 
-export const initLogger = () => {
+exports.initLogger = () => {
   global.loggerLevels = config.levels
 }
 
-export const log = (options) => {
+exports.log = (options) => {
   const levelName =
     options.level && global.loggerLevels.hasOwnProperty(options.level)
       ? options.level
@@ -56,7 +62,7 @@ export const log = (options) => {
   }
 }
 
-export const addCustomLevels = (obj) => {
+exports.addCustomLevels = (obj) => {
   global.loggerLevels = Object.assign(global.loggerLevels, obj)
 }
 
@@ -79,7 +85,7 @@ const writeToFile = (filePath, level, message) => {
   appendFileSync(filePath, data, options)
 }
 
-export const readLog = async (fileName) => {
+exports.readLog = async (fileName) => {
   const logsDir = path.resolve(__dirname, '..', '..', 'logs')
 
   return new Promise((resolve, reject) => {
