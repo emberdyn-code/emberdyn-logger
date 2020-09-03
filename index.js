@@ -55,7 +55,7 @@ exports.log = (options) => {
     : path.resolve(__dirname, '..', '..', 'logs', `${options.level}.log`)
 
   // Decide whether to write logs to file based on configuration file.
-  if (config.levels[levelName].fileModes.includes(process.env.API_MODE)) {
+  if (config.levels[levelName].fileModes.includes(process.env.EMBERDYN_LOGGING_MODE)) {
     writeToFile(file, levelName, message)
   }
 }
