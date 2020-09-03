@@ -79,4 +79,7 @@ module.exports = {
 
 ## Example Usage
 
-`logger.log({ message: 'Hello World', level: 'info' })`
+```
+const logger = require('emberdyn-logger')
+logger.log({ message: 'Hello World', level: 'info' })
+```
