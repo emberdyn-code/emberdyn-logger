@@ -1,0 +1,30 @@
+{
+  "name": "emberdyn-logger",
+  "version": "1.0.0",
+  "description": "A module for logging with Node JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emberdyn-code/emberdyn-logger.git"
+  },
+  "keywords": [
+    "emberdyn",
+    "logging",
+    "logger",
+    "log"
+  ],
+  "author": "Emberdyn, LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emberdyn-code/emberdyn-logger/issues"
+  },
+  "homepage": "https://github.com/emberdyn-code/emberdyn-logger#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
+    "moment": "^2.27.0"
+  }
+}
