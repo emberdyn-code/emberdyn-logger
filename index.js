@@ -18,9 +18,7 @@ const config = require(process.env.PWD +
   process.env.EMBERDYN_LOGGER_CONFIG_PATH +
   '/logger')
 
-exports.initLogger = () => {
-  global.loggerLevels = config.levels
-}
+global.loggerLevels = config.levels
 
 exports.log = (options) => {
   const levelName =
