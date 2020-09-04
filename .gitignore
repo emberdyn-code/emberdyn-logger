@@ -13,3 +13,9 @@ yarn-error.log
 #| Environment
 #|----------------------|
 *.env
+!example/.env
+
+#|----------------|
+#| Logs
+#|----------------------|
+logs/
