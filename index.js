@@ -15,10 +15,15 @@ const {
 } = require('fs')
 
 const appDir = path.dirname(require.main.filename)
-const config = require(appDir +
+
+const defaultConfig = require('./config' + path.sep + 'logger')
+const customConfig = require(appDir +
   path.sep +
   process.env.EMBERDYN_LOGGER_CONFIG_PATH +
-  '/logger')
+  path.sep +
+  'logger')
+
+const config = { levels: { ...defaultConfig.levels, ...customConfig.levels } }
 
 global.loggerLevels = config.levels
 
@@ -32,6 +37,7 @@ exports.log = (options) => {
   const message = options.message ? options.message : 'Unidentified Error'
   const error = options.error ? options.error : null
 
+  //Chalk function should interpolate to: chalk['brightRed']('[ERROR]: Some Message')
   if (error) {
     console.log(
       `${chalk[level.color](`[${levelName.toUpperCase()}]`)}: ${chalk[
