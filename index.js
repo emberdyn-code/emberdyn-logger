@@ -17,11 +17,11 @@ const {
 const appDir = path.dirname(require.main.filename)
 
 const defaultConfig = require('./config' + path.sep + 'logger')
-const customConfig = require(appDir +
+const customConfig = process.env.EMBERDYN_LOGGER_CONFIG_PATH != undefined ? require(appDir +
   path.sep +
   process.env.EMBERDYN_LOGGER_CONFIG_PATH +
   path.sep +
-  'logger')
+  'logger') : {}
 
 const config = { levels: { ...defaultConfig.levels, ...customConfig.levels } }
 
