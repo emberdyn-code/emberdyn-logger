@@ -16,6 +16,7 @@ If your project does not already have one, you will need to create a **_.env_** 
 #|-------------------------------|
 
 #Let the module know where you Logger configuration file can be found. The path provided is relative to the root folder of your project.
+#This variable is optional and only needed if you create a configuration file to expand or extend the default levels.
 EMBERDYN_LOGGER_CONFIG_PATH=src/config
 
 #Set the logging mode to determine where the log should be displayed. Change this value to math modes you specified in the configuration file. (Details below)
@@ -24,10 +25,28 @@ EMBERDYN_LOGGING_MODE=development
 
 ## Configuration
 
-- You must also create a configuration file in the path specified in the **_.env_** file.
+- You may also create a configuration file in the path specified in the **_.env_** file.
 - The file name must be `logger.js`.
+- Your file should look something like this ...
 
-Example Configuration File:
+The Default Configuration File:
+
+```
+module.exports = {
+  levels: {
+    process: {
+      color: 'blueBright',
+      fileModes: ['production', 'prod']
+    },
+    api: {
+      color: 'magentoBright',
+      fileModes: ['production', 'prod']
+    }
+  }
+}
+```
+
+The Default Configuration File Looks like this:
 
 ```
 module.exports = {
