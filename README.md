@@ -29,7 +29,7 @@ EMBERDYN_LOGGING_MODE=development
 - The file name must be `logger.js`.
 - Your file should look something like this ...
 
-The Default Configuration File:
+Custom Configuration File:
 
 ```
 module.exports = {
@@ -98,7 +98,7 @@ module.exports = {
 
 ## Example Usage
 
-*An example project using the logger can be found in the repository.
+\*An example project using the logger can be found in the repository.
 
 ```
 const logger = require('emberdyn-logger')
