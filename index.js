@@ -17,11 +17,14 @@ const {
 const appDir = path.dirname(require.main.filename)
 
 const defaultConfig = require('./config' + path.sep + 'logger')
-const customConfig = process.env.EMBERDYN_LOGGER_CONFIG_PATH != undefined ? require(appDir +
-  path.sep +
-  process.env.EMBERDYN_LOGGER_CONFIG_PATH +
-  path.sep +
-  'logger') : {}
+const customConfig =
+  process.env.EMBERDYN_LOGGER_CONFIG_PATH != undefined
+    ? require(appDir +
+        path.sep +
+        process.env.EMBERDYN_LOGGER_CONFIG_PATH +
+        path.sep +
+        'logger')
+    : {}
 
 const config = { levels: { ...defaultConfig.levels, ...customConfig.levels } }
 
@@ -126,4 +129,40 @@ exports.readLog = async (fileName) => {
       reject(error)
     })
   })
+}
+
+exports.info = (message) => {
+  this.log({ level: 'info', message })
+}
+
+exports.error = (message, error = null) => {
+  this.log({ level: 'error', message, error })
+}
+
+exports.debug = (message) => {
+  this.log({ level: 'debug', message })
+}
+
+exports.warn = (message) => {
+  this.log({ level: 'warn', message })
+}
+
+exports.system = (message) => {
+  this.log({ level: 'system', message })
+}
+
+exports.database = (message) => {
+  this.log({ level: 'database', message })
+}
+
+exports.event = (message) => {
+  this.log({ level: 'event', message })
+}
+
+exports.fatal = (message, error = null) => {
+  this.log({ level: 'fatal', message, error })
+}
+
+exports.access = (message) => {
+  this.log({ level: 'access', message })
 }

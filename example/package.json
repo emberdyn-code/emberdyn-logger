@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "emberdyn-logger": "^1.0.14"
+    "emberdyn-logger": "^1.0.15"
   }
 }

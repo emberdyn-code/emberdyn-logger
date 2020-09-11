@@ -104,3 +104,26 @@ module.exports = {
 const logger = require('emberdyn-logger')
 logger.log({ message: 'Hello World', level: 'info' })
 ```
+
+## Helper functions
+
+There are also helper function for the logger available for the default logging levels.
+
+### Example
+
+```
+logger.error('Testing the helper function for info.', errorObject)
+logger.event('Testing the helper function for event.')
+logger.warn('Testing the helper function for warn.')
+logger.info('Testing the helper function for info.')
+logger.debug('Testing the helper function for debug.')
+logger.fatal('Testing the helper function for fatal.', errorObject)
+logger.system('Testing the helper function for system.')
+logger.database('Testing the helper function for database.')
+logger.access('Testing the helper function for access.')
+```
+
+## Example Project
+If you visit the repository you can download an example project.
+
+[Emberdyn Logger Repository](https://github.com/emberdyn-code/emberdyn-logger)
