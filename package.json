@@ -1,6 +1,6 @@
 {
   "name": "emberdyn-logger",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A module for logging with Node JS",
   "main": "index.js",
   "scripts": {

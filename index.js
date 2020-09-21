@@ -40,18 +40,22 @@ exports.log = (options) => {
   const message = options.message ? options.message : 'Unidentified Error'
   const error = options.error ? options.error : null
 
+  const currentDate = moment(new Date()).format(
+    moment.HTML5_FMT.DATETIME_LOCAL_SECONDS
+  )
+
   //Chalk function should interpolate to: chalk['brightRed']('[ERROR]: Some Message')
   if (error) {
     console.log(
-      `${chalk[level.color](`[${levelName.toUpperCase()}]`)}: ${chalk[
-        level.color
-      ](error.message + '\n' + error.stack)}`
+      `${chalk[level.color](
+        `[${levelName.toUpperCase()}][${currentDate}]`
+      )}: ${chalk[level.color](error.message + '\n' + error.stack)}`
     )
   } else {
     console.log(
-      `${chalk[level.color](`[${levelName.toUpperCase()}]`)}: ${chalk[
-        level.color
-      ](message)}`
+      `${chalk[level.color](
+        `[${levelName.toUpperCase()}][${currentDate}]`
+      )}: ${chalk[level.color](message)}`
     )
   }
 
